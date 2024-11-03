@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_challenge/core/enums/enums.dart';
 
 import '../presentation.dart';
 
@@ -55,15 +56,67 @@ class _HomeNewsState extends State<HomeNews> {
           }
           final currentState = state as ArticleSuccess;
 
-          return ListView.separated(
-            controller: _scrollController,
-            itemBuilder: (context, index) => CardArticle(
-              article: currentState.shownArticles![index],
-            ),
-            separatorBuilder: (context, index) => const SizedBox(
-              height: 10,
-            ),
-            itemCount: currentState.shownArticles!.length,
+          return Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: ToggleButtons(
+                  isSelected: List.generate(
+                      7,
+                      (index) =>
+                          NewsCategories.values[index] ==
+                          state.currentCategory),
+                  onPressed: (int index) {
+                    context.read<ArticleBloc>().add(
+                        SetCategory(categorie: NewsCategories.values[index]));
+                  },
+                  children: const <Widget>[
+                    Text(
+                      'General',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      'Business',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      'Entertainment',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      'Health',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      'Science',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      'Sports',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      'Technology',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                  flex: 15,
+                  child:  currentState.shownArticles!.isEmpty? Center(
+                    child: Text('There are not news for this topic.'),
+                  ): ListView.separated(
+                    controller: _scrollController,
+                    itemBuilder: (context, index) => CardArticle(
+                      article: currentState.shownArticles![index],
+                    ),
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 10,
+                    ),
+                    itemCount: currentState.shownArticles!.length,
+                  )),
+            ],
           );
         },
       ),

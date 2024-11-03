@@ -1,7 +1,7 @@
 enum NewsCategories {
+  general,
   bussiness,
   entretainment,
-  general,
   health,
   science,
   sports,

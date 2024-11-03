@@ -36,6 +36,7 @@ class _NewsApiService implements NewsApiService {
       r'country': country,
       r'category': category,
     };
+
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': apiKey};
     _headers.removeWhere((k, v) => v == null);
@@ -63,7 +64,6 @@ class _NewsApiService implements NewsApiService {
           List<Map<String, dynamic>>.from(_result.data!['articles']);
 
       _value = articles.map((i) => ArticleModel.fromJson(i)).toList();
-
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

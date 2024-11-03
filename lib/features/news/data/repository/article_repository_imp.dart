@@ -24,7 +24,7 @@ class ArticleRepositoryImp implements ArticleRepository {
     try {
       //  Realizamos la pateición con el helper
       final httpResponse = await newsApiService.getArticlesClient(
-          apiKey: API_KEY, pageSize: AMOUNT_ARTICLES, country: CONTRY_NEWS);
+          apiKey: API_KEY, pageSize: AMOUNT_ARTICLES, country: CONTRY_NEWS,category: categorie);
       // Si sale todo bien regresamos el tipo de dato success con la data dentro
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSucces(httpResponse.data);

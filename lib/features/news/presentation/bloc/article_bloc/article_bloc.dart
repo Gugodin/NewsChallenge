@@ -48,17 +48,26 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
   Future<void> onSetCategory(
       SetCategory event, Emitter<ArticleState> emit) async {
     emit(ArticleLoading());
-
     final response = await getArticleUseCase(params: event.categorie.name);
 
     if (response is DataSucces) {
+      print(response.data!.length);
       final allArticles = response.data!;
-      final firts10Articles = allArticles.sublist(0, 10);
-      allArticles.removeRange(0, 10);
+
+      // Si hay menos de 10 artículos, ajustamos la cantidad de artículos mostrados
+      final first10Articles =
+          allArticles.length > 10 ? allArticles.sublist(0, 10) : allArticles;
+
+      // Eliminamos solo si hay más de 10 artículos
+      if (allArticles.length > 10) {
+        allArticles.removeRange(0, 10);
+      } else {
+        allArticles.clear(); // Si hay menos de 10, vaciamos la lista de todos
+      }
 
       emit(ArticleSuccess(
           articles: allArticles,
-          shownArticles: firts10Articles,
+          shownArticles: first10Articles,
           currentCategory: event.categorie));
     } else {
       emit(ArticleError(error: response.error!));
