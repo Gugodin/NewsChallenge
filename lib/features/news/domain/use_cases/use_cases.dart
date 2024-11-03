@@ -1,0 +1,1 @@
+export 'get_article_use_case.dart';
