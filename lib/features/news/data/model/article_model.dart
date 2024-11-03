@@ -8,12 +8,12 @@ import '../../domain/domain.dart';
 // Lo unico que lo diferencia es el metodo fromJson que será utilizado por el helper de RETROFIT
 class ArticleModel extends ArticleEntity {
   ArticleModel({
-    String? source,
-    String? title,
-    String? description,
-    String? date,
-    String? urlArticle,
-    String? urlImage,
+    super.source,
+    super.title,
+    super.description,
+    super.date,
+    super.urlArticle,
+    super.urlImage,
   });
 
   factory ArticleModel.fromJson(Map<String, dynamic> map) {

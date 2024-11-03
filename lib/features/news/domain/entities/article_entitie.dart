@@ -28,4 +28,7 @@ class ArticleEntity extends Equatable {
         urlArticle,
         urlImage,
       ];
+
+  @override
+  bool get stringify => true;
 }

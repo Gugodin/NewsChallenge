@@ -28,7 +28,9 @@ dependencies:
   custom_refresh_indicator: ^4.0.1
   # Paquete para poder realizar peticiones http
   dio: ^5.7.0
+  # Paquete para el enrrutamiento de la aplicación
   go_router: ^14.3.0
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -43,8 +45,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

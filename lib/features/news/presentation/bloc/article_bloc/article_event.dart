@@ -33,3 +33,10 @@ class SendError extends ArticleEvent {
   @override
   List<Object> get props => [];
 }
+
+class LoadMoreArticles extends ArticleEvent {
+  const LoadMoreArticles ();
+
+  @override
+  List<Object> get props => [];
+}

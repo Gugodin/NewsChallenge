@@ -29,7 +29,7 @@ class ArticleRepositoryImp implements ArticleRepository {
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSucces(httpResponse.data);
       } else {
-      // Si no regresamos el tipo de data error con la informacion del error
+        // Si no regresamos el tipo de data error con la informacion del error
         return DataError(DioException(
             requestOptions: httpResponse.response.requestOptions,
             error: httpResponse.response.statusMessage,
