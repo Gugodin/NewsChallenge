@@ -4,6 +4,8 @@
 
 import '../../domain/domain.dart';
 
+// Modelo que extiende de nuestra entidad debido a que contienen los mismos parametros
+// Lo unico que lo diferencia es el metodo fromJson que será utilizado por el helper de RETROFIT
 class ArticleModel extends ArticleEntity {
   ArticleModel({
     String? source,

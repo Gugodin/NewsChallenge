@@ -15,7 +15,7 @@ part 'article_state.dart';
 class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
 
   final GetArticleUseCase getArticleUseCase;
-
+  // Aplicación de inyeccion de dependecias
   ArticleBloc({required this.getArticleUseCase}) : super(ArticleLoading()) {
     on<GetArticles>(onGetArticles);
     on<SetCategory>(onSetCategory);

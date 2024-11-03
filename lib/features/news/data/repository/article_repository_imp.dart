@@ -11,7 +11,7 @@ import '../data.dart';
 class ArticleRepositoryImp implements ArticleRepository {
   // Obtenemos el helper para poder realizar peticiones http
   NewsApiService newsApiService;
-
+  // Aplicación de inyeccion de dependecias
   ArticleRepositoryImp({
     required this.newsApiService,
   });

@@ -8,7 +8,7 @@ import '../domain.dart';
 class GetArticleUseCase
     implements UseCase<DataState<List<ArticleEntity>>, String> {
   final ArticleRepository articleRepository;
-
+  // Aplicación de inyeccion de dependecias
   GetArticleUseCase({
     required this.articleRepository,
   });
