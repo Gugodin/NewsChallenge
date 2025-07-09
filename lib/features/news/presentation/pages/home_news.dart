@@ -105,7 +105,7 @@ class _HomeNewsState extends State<HomeNews> {
               Expanded(
                   flex: 15,
                   child:  currentState.shownArticles!.isEmpty? Center(
-                    child: Text('There are not news for this topic.'),
+                    child: const Text('There are not news for this topic.'),
                   ): ListView.separated(
                     controller: _scrollController,
                     itemBuilder: (context, index) => CardArticle(

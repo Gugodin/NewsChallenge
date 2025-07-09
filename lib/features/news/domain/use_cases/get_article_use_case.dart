@@ -18,3 +18,4 @@ class GetArticleUseCase
     return await articleRepository.getArticles(params);
   }
 }
+

@@ -27,6 +27,8 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
       GetArticles event, Emitter<ArticleState> emit) async {
     emit(ArticleLoading());
 
+    
+
     final response =
         await getArticleUseCase(params: NewsCategories.general.name);
 
